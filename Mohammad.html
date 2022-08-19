@@ -7,8 +7,13 @@
   <meta name="keywords" content="Kebablandet, Kebablandet.com">
   <meta property="og:image" content="https://kebablandet.com/img/kebabtralla.png">
   <meta property="og:url" content="https://kebablandet.com">
+         <noscript>things not gonna work if you got no scripts<br></noscript>
+      <audio id="bruhsong" src="sorry mohammed.ogg" autoplay="" loop=""></audio>
+      <bgsound src="sorry mohammed.mp3" loop="infinite" id="iesong">
+      <button onclick="plsplay()" id="playbut" class="ieplaybut" style="background-color:#B86D14;color:#ffffff;">play music</button><br>
+      <input type="range" min="1" max="100" value="100" onchange="ievol()" id="playvol">
   <title>Kebab - Mohammad</title>
-  <link rel="stylesheet" href="style.css">
+
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,6 +123,93 @@ nav ul li a{
  <div align="center"><b><font face="Arial, Helvetica, sans-serif" size="1" color="#666666">Copyright 
         &copy; Faavela 2006-2022 <br>
         E-mail: <a href="" class="meny">Faaveela@gmail.com</a></font></b></div>
+
+
+ <script>
+         console.log("Young fly on the track \n")
+         var ie = false
+       
+         function plsplay() {
+         if (document.getElementById('playbut').textContent === 'play music') {
+         document.getElementById('bruhsong').play()
+         document.getElementById('playbut').textContent = 'stop music'
+         } else {
+         document.getElementById('bruhsong').pause()
+         document.getElementById('playbut').textContent = 'play music'
+         }
+         }
+         
+         function getchrome() {     
+         var raw = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);
+         
+         return raw ? parseInt(raw[2], 10) : false;
+         }
+         
+         
+         function getfirefox() {
+         var version = null;
+         
+         var userAgent = navigator.userAgent.toLowerCase();
+         if (userAgent.indexOf('firefox') !== -1) {
+         var matches = userAgent.match(/firefox\/([0-9]+\.*[0-9]*)/);
+         if (matches) {
+            version = matches[1];
+         }
+         }
+         
+         return version;
+         }
+        
+         
+         
+         if ((getchrome() < 4 && getchrome() !== false) || (getfirefox() < 3.5 && getfirefox() !== null)) {
+         document.getElementById('playvol').parentNode.removeChild(document.getElementById('playvol'))
+         document.getElementById('playbut').parentNode.removeChild(document.getElementById('playbut'))
+         }
+         
+         
+         function ievol(){
+         if (window.attachEvent && !window.addEventListener || navigator.userAgent.indexOf('MSIE') > -1 || navigator.userAgent.indexOf('Trident') > -1) {
+         document.getElementById('iesong').volume = (parseInt(document.getElementById('playvol').value)-100)*50
+         }
+         }
+         
+         
+         if (window.attachEvent && !window.addEventListener || navigator.userAgent.indexOf('MSIE') > -1 || navigator.userAgent.indexOf('Trident') > -1) {
+         ie = true
+         
+         setTimeout(function(){document.getElementById('playbut').innerHTML = 'stop music'},2000)
+         function plsplay() {
+         if (document.getElementById('playbut').innerHTML === 'play music') {
+         document.getElementById('iesong').src = 'UHHHH.wav'
+         document.getElementById('playbut').innerHTML = 'stop music'
+         } else {
+         document.getElementById('iesong').src = ''
+         document.getElementById('playbut').innerHTML = 'play music'
+         }
+         }
+         }
+         
+         else {
+         
+         window.onload = function() {
+         var tempi = 0
+         var theint = setInterval(function() {
+            if (!document.getElementById('bruhsong').paused) {
+                document.getElementById('playbut').textContent = 'stop music'
+            }
+            tempi += 1
+            if (tempi === 2000) clearInterval(theint)
+         }, 1);
+         document.getElementById('playvol').addEventListener("change", function() {
+            document.getElementById('bruhsong').volume = document.getElementById('playvol').value / 100
+            localStorage.setItem('sawvolume', document.getElementById('playvol').value / 100)
+         }, false);
+         }
+         document.getElementById('bruhsong').volume = localStorage.getItem('sawvolume') || 1.0
+         document.getElementById('playvol').value = localStorage.getItem('sawvolume') * 100 || 100
+         }
+</script>       
 
 
 
