@@ -80,9 +80,52 @@ font-family: 'Roboto', sans-serif;
 <center><h1>DONERA!</h1></center>
 <p>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
 <p>ETH Wallet: 0x3C56fcDF80cbAb59C0555C0d17A7559535c2A099</p>
-<br>BTC Wallet: 3Npx2z23vamCBu8otusf9RukypfwLRpmbq</p>  
+<p>BTC Wallet: 3Npx2z23vamCBu8otusf9RukypfwLRpmbq</p>  
 
 <p>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+
+<center><h3>Kebablandet 2nd anniversary</h3></center>
+
+<style>
+p {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 0px;
+}
+</style>
+
+<p id="timer"></p>
+
+<script>
+
+var countDownDate = new Date("mar 5, 2024 00:00:00").getTime();
+
+
+var x = setInterval(function() {
+
+
+  var now = new Date().getTime();
+
+  
+  var distance = countDownDate - now;
+
+ 
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+ 
+  document.getElementById("timer").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("timer").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
 
 
 
@@ -91,7 +134,12 @@ font-family: 'Roboto', sans-serif;
 
 
 
+
+
 <center><a href="https://www.mediafire.com/file/vy49k5kac279efc/The_Homebrew_Channel_-_PIR8.wad/file"><img src="img/Animated-2Bdownload-2Bbutton.gif" width="500" height="160"></a></center>
+
+
+
 
 <div align="center"><b><font face="Arial, Helvetica, sans-serif" size="1" color="#666666">Copyright 
         &copy; Faavela 2006-2023 <br>
@@ -103,6 +151,8 @@ font-family: 'Roboto', sans-serif;
 <img src="img/notepad3.gif" width="80" height="35"> 
 
 <img src="img/anybrowser.gif" width="80" height="35">
+
+
 
 <script>
          console.log("Young fly on the track \n")
